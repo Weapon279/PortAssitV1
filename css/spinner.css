@@ -1,0 +1,13 @@
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-dialog {
+    width: 200px;
+    margin: 0 auto;
+  }
+  
+  .loader {
+    margin: 0 auto;
+  }
+  

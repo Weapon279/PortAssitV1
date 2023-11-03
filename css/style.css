@@ -1,0 +1,122 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+  margin: 0 0 10px 0;
+}
+
+p {
+  margin: 0 0 10px 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.main {
+  width: 100%;
+  height: calc(100% - 50px);
+}
+
+.hero {
+  background-image: url('images/hero.png');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  border-bottom: 1px solid #000;
+}
+
+.about {
+  background-color: #fff;
+  padding: 20px;
+  border-bottom: 1px solid #000;
+}
+
+.services {
+  background-color: #fff;
+  padding: 20px;
+  border-bottom: 1px solid #000;
+}
+
+.ratings {
+  background-color: #fff;
+  padding: 20px;
+  border-bottom: 1px solid #000;
+}
+
+.contact {
+  background-color: #fff;
+  padding: 20px;
+  border-bottom: 1px solid #000;
+}
+
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.btn {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.rating i {
+  font-size: 20px;
+}
+
+.rating p {
+  margin-left: 10px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.font-raleway {
+  font-family: 'Raleway', sans-serif;
+}
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.image-center {
+  display: block;
+  margin: 0 auto;
+}
