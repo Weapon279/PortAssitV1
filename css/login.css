@@ -35,3 +35,12 @@
     text-decoration: none;
     cursor: pointer;
 }
+
+#jumbotron{
+    border-radius: 38px 0px 38px 0px;
+    }
+.jumbotron{
+        border-radius: 38px 0px 38px 0px;
+        }
+    
+        
