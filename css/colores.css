@@ -1,12 +1,5 @@
-/* ----------------------------------------------------------------
-	Colors
-
-	Replace the HEX Code with your Desired Color HEX
------------------------------------------------------------------*/
-
-
-:root {
-    --themecolor: #e74a1d;
+root {
+    --themecolor: #9a9a9a;
     /* Change this Color */
 }
 

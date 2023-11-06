@@ -1,6 +1,8 @@
+<!--CSS
 <?php 
-	include "verificarsesion.php";
+	include "verssificarsesion.php";
 	?>
+    -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -82,6 +84,21 @@
 </video>
 
 <header>
+<div id="servicios" class="section p-0 dark mb-0" style="background: linear-gradient(to right, rgba(231,74,29,0.2), rgba(77,77,77,77)), url('./img/ceeel.jpg') no-repeat center center / cover; min-height: 400px">
+					<div class="container">
+						<div class="row justify-content-between mb-4" style="padding: 100px 0 160px;">
+							<div class="col-lg-5 col-md-6 offset-lg-1 pt-3">
+								<h2 class="display-4 fw-bold text-white topmargin-lg">Inicio</h2>
+							</div>
+							<div class="col-lg-5 col-md-6 mb-0 mb-md-5">
+								<p class="d-none mb-5">Bienvenido a PortuAssist, es una plataforma que busca mejorar la seguridad y eficiencia en los entornos portuarios, a través de la implementación de soluciones tecnológicas y la colaboración entre múltiples actores..</p>
+								<div class="d-flex">
+									<ul class="col-6 iconlist">
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
 <section id="content">
 
 <div class="content-wrap pb-0">
@@ -171,13 +188,6 @@
         </section>
             <h2>Inicio</h2>
             <p>Bienvenido a PortuAssist, es una plataforma que busca mejorar la seguridad y eficiencia en los entornos portuarios, a través de la implementación de soluciones tecnológicas y la colaboración entre múltiples actores.</p>
-        </section>
-        </section>
-        <section class="jumbotron text-center"">
-        <section id="quienes-somos">
-        </section>
-            <h2>Quiénes somos</h2>
-            <p>PortuAssist es una solución integral para mejorar la seguridad y la eficiencia en los entornos portuarios. Nuestra solución se basa en la implementación de tecnologías avanzadas y sistemas de coordinación que permiten una comunicación fluida y una respuesta eficiente a las demandas del entorno portuario.</p>
         </section>
         </section>
         <section class="jumbotron text-center"">
