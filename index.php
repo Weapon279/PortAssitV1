@@ -101,7 +101,7 @@
 					</div>
 <section id="content">
 
-<div class="content-wrap pb-0">
+
 
     <div id="quienes-somos" class="container clearfix">
 
@@ -183,14 +183,14 @@
 
     </header>
         </section>
-        <section class="jumbotron text-center"">
+        <section class="jumbotron text-center">
         <section id="inicio">
         </section>
             <h2>Inicio</h2>
             <p>Bienvenido a PortuAssist, es una plataforma que busca mejorar la seguridad y eficiencia en los entornos portuarios, a través de la implementación de soluciones tecnológicas y la colaboración entre múltiples actores.</p>
         </section>
         </section>
-        <section class="jumbotron text-center"">
+        <section class="jumbotron text-center">
         <section id="servicios">
         </section>
             <h2>Servicios</h2>
@@ -201,7 +201,7 @@
             </ul>
         </section>
         </section>
-        <section class="jumbotron text-center"">
+        <section class="jumbotron text-center">
         <section id="mision-y-vision">
             <h2>Misión y visión</h2>
             </section>
@@ -211,7 +211,7 @@
             <li>Ser el referente internacional en la implementación de soluciones tecnológicas para la seguridad y eficiencia portuaria.</li>
         </section>
         </section>
-        <section class="jumbotron text-center"">
+        <section class="jumbotron text-center">
         <section id="contacto">
         </section>
             <h2>Contacto</h2>
