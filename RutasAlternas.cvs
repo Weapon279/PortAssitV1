@@ -1,0 +1,12 @@
+id,nombre,tipo,longitud,latitud,densidad_vehiculos,nivel_congestion,rutas_alternas,medidas_mitigacion
+1,Avenida México,Carretera,10000,19.5000,100,Alto,[{"id":2,"nombre":"Calle Morelos","tipo":"Calle"}, {"id":3,"nombre":"Avenida Juárez","tipo":"Carretera"}],["Ampliación de la Avenida México","Instalación de semáforos inteligentes"]
+2,Calle Morelos,Calle,5000,19.5000,50,Medio,[],["Instalación de ciclovías","Mejora de la señalización"]
+3,Avenida Juárez,Carretera,15000,19.5000,25,Bajo,[],["Mejora del transporte público","Promoción del uso de la bicicleta"]
+4,Autopista Manzanillo-Guadalajara,Autopista,100000,19.5000,75,Muy Alto,[],["Ampliación de la autopista","Instalación de sistemas de telepeaje"]
+5,Carretera Colima-Manzanillo,Carretera,50000,19.5000,50,Medio,[],["Mejora de la señalización","Instalación de semáforos inteligentes"]
+6,Avenida de las Américas,Carretera,20000,19.5000,25,Bajo,[],["Mejora del transporte público","Promoción del uso de la bicicleta"]
+7,Avenida Tecnológico,Carretera,15000,19.5000,25,Bajo,[],["Mejora del transporte público","Promoción del uso de la bicicleta"]
+8,Calle Libertad,Calle,10000,19.5000,25,Bajo,[],["Mejora del transporte público","Promoción del uso de la bicicleta"]
+9,Calle Independencia,Calle,10000,19.5000,25,Bajo,[],["Mejora del transporte público","Promoción del uso de la bicicleta"]
+10,Calle Colima,Calle,10000,19.5000,25,Bajo,[],["Mejora del transporte público","Promoción del uso de la bicicleta"]
+
