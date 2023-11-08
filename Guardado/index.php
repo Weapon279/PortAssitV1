@@ -1,5 +1,5 @@
 <!--CSS
-<?php 
+<?php
 	include "verssificarsesion.php";
 	?>
     -->
@@ -32,7 +32,7 @@
     <script src="./js/login.js"></script>
     <script src="./js/verificarsesion.js"></script>
 
-
+n
     <!--PHP -->
 
 
@@ -93,8 +93,11 @@
 							<div class="col-lg-5 col-md-6 mb-0 mb-md-5">
 								<p class="d-none mb-5">Bienvenido a PortuAssist, es una plataforma que busca mejorar la seguridad y eficiencia en los entornos portuarios, a través de la implementación de soluciones tecnológicas y la colaboración entre múltiples actores..</p>
 								<div class="d-flex">
-									<ul class="col-6 iconlist">
-									</ul>
+	
+                                <ul class="col-6 iconlist">
+                                <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span class="ps-2">Implementación de sistemas para la gestión de tráfico</span></li>
+
+                            </ul>
 								</div>
 							</div>
 						</div>

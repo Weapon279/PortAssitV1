@@ -106,3 +106,14 @@ function initMap() {
      map.fitBounds(bounds);
   });
  }
+ function initMap() {
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 13,
+    center: { lat: 19.077521, lng: -104.287388 },
+  });
+  const trafficLayer = new google.maps.TrafficLayer();
+
+  trafficLayer.setMap(map);
+}
+
+window.initMap = initMap;
