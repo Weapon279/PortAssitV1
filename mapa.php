@@ -1,9 +1,9 @@
 <!doctype html>
-
 <html>
   <head>
     <title>Traffic Layer</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <script type="module" src="./index.ts"></script>
@@ -31,17 +31,11 @@
     <script src="./js/login.js"></script>
     <script src="./js/trafico.js"></script>
     <script src="./js/verificarsesion.js"></script>
+    <script src="./js/mapaid.js"></script>
+    <script src="./js/style.js"></script>
 
     <!--PHP -->
 
-
-
-
-    <style>
-        .container {
-            max-width: 1200px;
-        }
-    </style>
 
 
   </head>
@@ -77,20 +71,55 @@
     </header>
   <body>
     <div id="map"></div>
+<style>
+  /*
+ * Always set the map height explicitly to define the size of the div element
+ * that contains the map. \
+ */
+#map {
+  height: 100%;
+}
 
-    <!-- 
+/*
+ * Optional: Makes the sample page fill the window.
+ */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+  </style>
+
+    <!--
       The `defer` attribute causes the callback to execute after the full HTML
       document has been parsed. For non-blocking uses, avoiding race conditions,
       and consistent behavior across browsers, consider loading using Promises.
       See https://developers.google.com/maps/documentation/javascript/load-maps-js-api
       for more information.
       -->
+
+      <script>
+        function initMap() {
+    new google.maps.Map(document.getElementById("map"), {
+    mapId: "49f566b1e6cb4664",
+        center: { lat: 19.053997039794922, lng: -104.31616973876953 },
+        zoom: 12,
+    });
+    }
+    
+    window.initMap = initMap;
+        </script>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBCnwnkVoKyBJQhpfcvlinAxASZr_RvOw&callback=initMap&v=weekly"
       defer
     ></script>
     <script async
-   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBCnwnkVoKyBJQhpfcvlinAxASZr_RvOw&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBCnwnkVoKyBJQhpfcvlinAxASZr_RvOw&callback=initMap">
 </script>
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBCnwnkVoKyBJQhpfcvlinAxASZr_RvOw&callback=initMap&v=weekly"
+      defer
+    ></script>
   </body>
 </html>

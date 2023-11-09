@@ -553,3 +553,14 @@ body {
 .custom-map-control-button:hover {
   background: rgb(235, 235, 235);
 }
+
+
+ #map {
+  height: 100%;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
