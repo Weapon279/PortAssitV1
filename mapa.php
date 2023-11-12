@@ -40,6 +40,8 @@
 
   </head>
   <body>
+ 
+
   <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="index.html">PortuAssist</a>
@@ -70,6 +72,17 @@
         </nav>
     </header>
   <body>
+  <div id="myModal" class="modal">
+  <div class="modal-content">
+    <p>Aviso importante o precaución</p>
+    <button onclick="minimizeAlert()">Aceptar</button>
+  </div>
+</div>
+
+<!-- Alerta minimizada -->
+<div id="minimizedAlert" class="minimized-alert" onclick="openModal()">
+  Aviso
+</div>
     <div id="map"></div>
 <style>
   /*
@@ -100,16 +113,43 @@ body {
       -->
 
       <script>
-        function initMap() {
-    new google.maps.Map(document.getElementById("map"), {
-    mapId: "49f566b1e6cb4664",
-        center: { lat: 19.053997039794922, lng: -104.31616973876953 },
-        zoom: 12,
-    });
-    }
+   
     
-    window.initMap = initMap;
+
         </script>
+        <?php
+// Archivo PHP para manejar la inserción en la base de datos
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // Verificar si se ha enviado un evento
+  if (isset($_POST["evento_agregado"])) {
+    // Aquí debes agregar la lógica para insertar el evento en la tabla Accidentes
+    // Conectar a la base de datos y ejecutar la consulta
+    // Puedes usar mysqli o PDO, según tu preferencia
+    // Ejemplo con mysqli:
+
+    $conn = new mysqli("localhost", "root", "portu123", "portu");
+
+    if ($conn->connect_error) {
+      die("Error de conexión: " . $conn->connect_error);
+    }
+
+    $fecha_hora = date("Y-m-d H:i:s");
+    $lugar_accidente = $_POST["lugar_accidente"];
+    $informacion = $_POST["informacion"];
+
+    $sql = "INSERT INTO Accidentes (fecha_hora, lugar_accidente, informacion) VALUES ('$fecha_hora', '$lugar_accidente', '$informacion')";
+
+    if ($conn->query($sql) === TRUE) {
+      echo '<script>alert("Evento agregado correctamente");</script>';
+    } else {
+      echo '<script>alert("Error al agregar el evento: ' . $conn->error . '");</script>';
+    }
+
+    $conn->close();
+  }
+}
+?>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBCnwnkVoKyBJQhpfcvlinAxASZr_RvOw&callback=initMap&v=weekly"
       defer
@@ -119,6 +159,10 @@ body {
 </script>
 <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBCnwnkVoKyBJQhpfcvlinAxASZr_RvOw&callback=initMap&v=weekly"
+      defer
+    ></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBCnwnkVoKyBJQhpfcvlinAxASZr_RvOw&callback=initAutocomplete&libraries=places&v=weekly"
       defer
     ></script>
   </body>

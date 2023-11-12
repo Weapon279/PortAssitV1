@@ -19,19 +19,19 @@
 CREATE DATABASE IF NOT EXISTS `portu` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `portu`;
 
--- Volcando estructura para tabla portu.congestionvial
-CREATE TABLE IF NOT EXISTS `congestionvial` (
-  `ID` int NOT NULL AUTO_INCREMENT,
-  `Ruta_ID` int DEFAULT NULL,
-  `Fecha` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `Nivel_Trafico` varchar(20) DEFAULT NULL,
-  `Ruta_Alterna` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `Ruta_ID` (`Ruta_ID`),
-  CONSTRAINT `congestionvial_ibfk_1` FOREIGN KEY (`Ruta_ID`) REFERENCES `rutas` (`ID`)
+-- Volcando estructura para tabla portu.congestionamiento_vial
+CREATE TABLE IF NOT EXISTS `congestionamiento_vial` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `ruta_ID` int DEFAULT NULL,
+  `latitud` decimal(10,8) NOT NULL,
+  `longitud` decimal(11,8) NOT NULL,
+  `tiempo` time NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_congestionamiento_vial_rutas` (`ruta_ID`),
+  CONSTRAINT `FK_congestionamiento_vial_rutas` FOREIGN KEY (`ruta_ID`) REFERENCES `rutas` (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Volcando datos para la tabla portu.congestionvial: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla portu.congestionamiento_vial: ~0 rows (aproximadamente)
 
 -- Volcando estructura para tabla portu.login
 CREATE TABLE IF NOT EXISTS `login` (
@@ -46,6 +46,22 @@ CREATE TABLE IF NOT EXISTS `login` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Volcando datos para la tabla portu.login: ~0 rows (aproximadamente)
+
+-- Volcando estructura para tabla portu.marcadores
+CREATE TABLE IF NOT EXISTS `marcadores` (
+  `ID` int NOT NULL AUTO_INCREMENT,
+  `user_pk` int DEFAULT NULL,
+  `Tipo` varchar(20) NOT NULL,
+  `Latitud` decimal(10,8) NOT NULL,
+  `Longitud` decimal(11,8) NOT NULL,
+  `Descripcion` text,
+  `Fecha` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ID`),
+  KEY `FK_marcadores_usuarios` (`user_pk`),
+  CONSTRAINT `FK_marcadores_usuarios` FOREIGN KEY (`user_pk`) REFERENCES `usuarios` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Volcando datos para la tabla portu.marcadores: ~0 rows (aproximadamente)
 
 -- Volcando estructura para tabla portu.rutas
 CREATE TABLE IF NOT EXISTS `rutas` (
