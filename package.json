@@ -31,5 +31,7 @@
     "vite": "^4.4.9"
   },
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
 }

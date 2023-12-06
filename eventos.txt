@@ -1,0 +1,34 @@
+<!--PHP      <?php
+// Archivo PHP para manejar la inserción en la base de datos
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // Verificar si se ha enviado un evento
+  if (isset($_POST["evento_agregado"])) {
+    // Aquí debes agregar la lógica para insertar el evento en la tabla Accidentes
+    // Conectar a la base de datos y ejecutar la consulta
+    // Puedes usar mysqli o PDO, según tu preferencia
+    // Ejemplo con mysqli:
+
+    $conn = new mysqli("localhost", "root", "portu123", "portu");
+
+    if ($conn->connect_error) {
+      die("Error de conexión: " . $conn->connect_error);
+    }
+
+    $fecha_hora = date("Y-m-d H:i:s");
+    $lugar_accidente = $_POST["lugar_accidente"];
+    $informacion = $_POST["informacion"];
+
+    $sql = "INSERT INTO eventos (fecha_hora, lugar_accidente, informacion) VALUES ('$fecha_hora', '$lugar_accidente', '$informacion')";
+
+    if ($conn->query($sql) === TRUE) {
+      echo '<script>alert("Evento agregado correctamente");</script>';
+    } else {
+      echo '<script>alert("Error al agregar el evento: ' . $conn->error . '");</script>';
+    }
+
+    $conn->close();
+  }
+}
+?>
+-->

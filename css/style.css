@@ -412,3 +412,23 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
+.custom-shape-divider-top-1701310127 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1701310127 svg {
+  position: relative;
+  display: block;
+  width: calc(139% + 1.3px);
+  height: 161px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-top-1701310127 .shape-fill {
+  fill: #A1A1A1;
+}

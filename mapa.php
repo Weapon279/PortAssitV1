@@ -71,6 +71,7 @@
             </div>
         </nav>
     </header>
+    
   <body>
   <div id="myModal" class="modal">
   <div class="modal-content">
@@ -83,6 +84,24 @@
 <div id="minimizedAlert" class="minimized-alert" onclick="openModal()">
   Aviso
 </div>
+<!-- Formulario de búsqueda y mapa -->
+<div class="search-container">
+        <label for="origin-input">Punto de partida:</label>
+        <input type="text" id="origin-input" placeholder="Ingrese punto de partida">
+
+        <label for="destination-input">Punto de llegada:</label>
+        <input type="text" id="destination-input" placeholder="Ingrese punto de llegada">
+
+        <label for="vehicle-type">Seleccione vehiculo:</label>
+        <select id="vehicle-type">
+            <option value="driving">Carro</option>
+            <option value="truck">Camion</option>
+            <option value="motorcycle">Motocicleta</option>
+        </select>
+
+        <button onclick="calculateRoute()">Buscar ruta</button>
+    </div>
+
     <div id="map"></div>
 <style>
   /*
@@ -113,43 +132,44 @@ body {
       -->
 
       <script>
-   
-    
+     // Función para inicializar el mapa
+     function initMap() {
+            // ... Tu función initMap actual ...
+        }
+
+  // Función para calcular y mostrar la ruta
+  function calculateRoute() {
+            const origin = document.getElementById('origin-input').value;
+            const destination = document.getElementById('destination-input').value;
+            const vehicleType = document.getElementById('vehicle-type').value;
+
+            // Crear una instancia del servicio de direcciones
+            const directionsService = new google.maps.DirectionsService();
+            const directionsRenderer = new google.maps.DirectionsRenderer();
+
+            // Configurar la instancia del servicio de direcciones y el renderizador
+            directionsRenderer.setMap(map); // 'map' debe ser la variable donde se encuentra tu mapa
+            directionsRenderer.setPanel(document.getElementById('directions-panel')); // Agregar un panel para las indicaciones
+
+            // Crear la solicitud de ruta
+            const request = {
+                origin: origin,
+                destination: destination,
+                travelMode: google.maps.TravelMode[vehicleType.toUpperCase()] // Seleccionar el modo de viaje según el tipo de vehículo
+            };
+
+            // Llamar al servicio de direcciones para obtener la ruta
+            directionsService.route(request, function(response, status) {
+                if (status === 'OK') {
+                    directionsRenderer.setDirections(response);
+                } else {
+                    window.alert('Error al mostrar la ruta: ' + status);
+                }
+            });
+        }
 
         </script>
-        <?php
-// Archivo PHP para manejar la inserción en la base de datos
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  // Verificar si se ha enviado un evento
-  if (isset($_POST["evento_agregado"])) {
-    // Aquí debes agregar la lógica para insertar el evento en la tabla Accidentes
-    // Conectar a la base de datos y ejecutar la consulta
-    // Puedes usar mysqli o PDO, según tu preferencia
-    // Ejemplo con mysqli:
-
-    $conn = new mysqli("localhost", "root", "portu123", "portu");
-
-    if ($conn->connect_error) {
-      die("Error de conexión: " . $conn->connect_error);
-    }
-
-    $fecha_hora = date("Y-m-d H:i:s");
-    $lugar_accidente = $_POST["lugar_accidente"];
-    $informacion = $_POST["informacion"];
-
-    $sql = "INSERT INTO Accidentes (fecha_hora, lugar_accidente, informacion) VALUES ('$fecha_hora', '$lugar_accidente', '$informacion')";
-
-    if ($conn->query($sql) === TRUE) {
-      echo '<script>alert("Evento agregado correctamente");</script>';
-    } else {
-      echo '<script>alert("Error al agregar el evento: ' . $conn->error . '");</script>';
-    }
-
-    $conn->close();
-  }
-}
-?>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBCnwnkVoKyBJQhpfcvlinAxASZr_RvOw&callback=initMap&v=weekly"
       defer
@@ -165,5 +185,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBCnwnkVoKyBJQhpfcvlinAxASZr_RvOw&callback=initAutocomplete&libraries=places&v=weekly"
       defer
     ></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBCnwnkVoKyBJQhpfcvlinAxASZr_RvOw&callback=initAutocomplete&callback=initMap&v=weekly" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCBCnwnkVoKyBJQhpfcvlinAxASZr_RvOw&callback=initAutocomplete&callback=initAutocomplete&libraries=places&v=weekly" defer></script>
   </body>
 </html>

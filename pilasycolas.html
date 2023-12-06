@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+ <meta charset="UTF-8">
+ <title>Asignación de Rutas para Conductores</title>
+ <style>
+    /* Estilos generales */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    /* Estilos para la visualización */
+    .container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 30px;
+    }
+    .stack, .queue {
+      border: 1px solid #333;
+      width: 150px;
+      padding: 10px;
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .stack h2, .queue h2 {
+      margin: 0;
+      padding-bottom: 10px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 5px 10px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    button:hover {
+      background-color: #555;
+    }
+ </style>
+</head>
+<body>
+ <h1>Asignación de Rutas para Conductores</h1>
+ <div class="container">
+    <div class="stack">
+      <h2>Conductor A</h2>
+      <div id="driverAStack"></div>
+      <button onclick="assignRoute('driverA')">Asignar Ruta</button>
+      <button onclick="removeRoute('driverA')">Quitar Ruta</button>
+    </div>
+    <div class="stack">
+      <h2>Conductor B</h2>
+      <div id="driverBStack"></div>
+      <button onclick="assignRoute('driverB')">Asignar Ruta</button>
+      <button onclick="removeRoute('driverB')">Quitar Ruta</button>
+    </div>
+    <div class="queue">
+      <h2>Rutas por Asignar</h2>
+      <div id="routesQueue"></div>
+      <button onclick="assignFromQueue()">Asignar a Conductor</button>
+      <button onclick="addRoute()">Agregar Ruta</button>
+      <button onclick="removeFromQueue()">Quitar de la Cola</button>
+    </div>
+ </div>
+
+ <script>
+    // Conductores con sus colas de rutas
+    const driverAQueue = [];
+    const driverBQueue = [];
+    // Cola de rutas por asignar
+    const routesQueue = [];
+
+    function updateDisplay() {
+      document.getElementById('driverAStack').innerHTML = driverAQueue.join('<br>');
+      document.getElementById('driverBStack').innerHTML = driverBQueue.join('<br>');
+      document.getElementById('routesQueue').innerHTML = routesQueue.join('<br>');
+    }
+
+    function assignRoute(driver) {
+      const route = prompt('Ingrese la ruta:');
+      if (driver === 'driverA') {
+        driverAQueue.push(route);
+      } else if (driver === 'driverB') {
+        driverBQueue.push(route);
+      }
+      updateDisplay();
+    }
+
+    function removeRoute(driver) {
+      if (driver === 'driverA') {
+        if (driverAQueue.length === 0) {
+          alert('Conductor A no tiene rutas asignadas.');
+        } else {
+          driverAQueue.pop();
+        }
+      } else if (driver === 'driverB') {
+        if (driverBQueue.length === 0) {
+          alert('Conductor B no tiene rutas asignadas.');
+        } else {
+          driverBQueue.pop();
+        }
+      }
+      updateDisplay();
+    }
+
+    function addRoute() {
+      const newRoute = prompt('Ingrese la nueva ruta:');
+      routesQueue.push(newRoute);
+      updateDisplay();
+    }
+
+    function assignFromQueue() {
+      if (routesQueue.length === 0) {
+        alert('La cola de rutas por asignar está vacía.');
+      } else {
+        const route = routesQueue.shift();
+        const selection = prompt('Ingrese el conductor para asignar la ruta (A o B):');
+        if (selection === 'A') {
+          driverAQueue.push(route);
+        } else if (selection === 'B') {
+          driverBQueue.push(route);
+        } else {
+          alert('Conductor no válido.');
+          routesQueue.unshift(route);
+        }
+      }
+      updateDisplay();
+    }
+
+    function removeFromQueue() {
+      if (routesQueue.length === 0) {
+        alert('La cola de rutas por asignar está vacía.');
+      } else {
+        routesQueue.shift();
+      }
+      updateDisplay();
+    }
+ </script>
+</body>
+</html>
